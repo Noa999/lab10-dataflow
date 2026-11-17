@@ -64,4 +64,12 @@ class BonusTest {
     void bonus_streakBonusWithoutThreshold_scoreThree() {
         assertEquals(3, DataFlowTargets.bonus(new int[]{1, 1, 1, 1, 1}, 10));
     }
+
+    // ---------- Added in Part C to kill mutant M2 (best = present) ----------
+
+    @Test
+    @DisplayName("D9 1,1,1,1,0,1: present=5 but longest streak=4, so no streak bonus (kills M2)")
+    void bonus_fivePresentButStreakFour_noStreakBonus() {
+        assertEquals(5, DataFlowTargets.bonus(new int[]{1, 1, 1, 1, 0, 1}, 1));
+    }
 }
